@@ -1,0 +1,13 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="512" height="512" rx="96" fill="#f85a00"/>
+  
+  <!-- House body -->
+  <path d="M96 280V400C96 417.673 110.327 432 128 432H384C401.673 432 416 417.673 416 400V280" fill="white"/>
+  
+  <!-- Roof -->
+  <path d="M64 280L256 120L448 280" stroke="white" stroke-width="48" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  
+  <!-- Checkmark -->
+  <path d="M176 300L224 348L336 220" stroke="#f85a00" stroke-width="40" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no, maximum-scale=1">
+  <meta name="theme-color" content="#f85a00">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="HomeKeep">
+  <meta name="description" content="Track home maintenance tasks. Never miss a filter change, seasonal prep, or equipment service again.">
+  <meta name="mobile-web-app-capable" content="yes">
+  
+  <title>HomeKeep - Home Maintenance Tracker</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/icon.svg">
+  <link rel="apple-touch-icon" href="/icon-192.png">
+  
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+    
+    html, body, #root {
+      height: 100%;
+      width: 100%;
+      overflow-x: hidden;
+    }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: #fafaf9;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    
+    @supports (padding: env(safe-area-inset-top)) {
+      body {
+        padding-top: env(safe-area-inset-top);
+        padding-bottom: env(safe-area-inset-bottom);
+        padding-left: env(safe-area-inset-left);
+        padding-right: env(safe-area-inset-right);
+      }
+    }
+    
+    #splash {
+      position: fixed;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 16px;
+      background: #fafaf9;
+      z-index: 9999;
+      transition: opacity 0.3s ease;
+    }
+    
+    #splash.hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
+    
+    #splash svg {
+      animation: pulse 1.5s ease-in-out infinite;
+    }
+    
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.7; transform: scale(0.98); }
+    }
+    
+    html {
+      overscroll-behavior: none;
+    }
+  </style>
+</head>
+<body>
+  <div id="splash">
+    <svg width="140" height="36" viewBox="0 0 280 72">
+      <path d="M8 45V65c0 2.2 1.8 4 4 4h32c2.2 0 4-1.8 4-4V45" fill="#f85a00"/>
+      <path d="M4 45L28 20 52 45" stroke="#f85a00" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      <path d="M16 48l8 8 16-20" stroke="white" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+      <text x="68" y="52" font-family="system-ui" font-size="36" font-weight="700" fill="#f85a00">home</text>
+      <text x="150" y="52" font-family="system-ui" font-size="36" font-weight="700" fill="#0055b8">Keep</text>
+    </svg>
+    <p style="color: #64748b; font-size: 14px;">Loading...</p>
+  </div>
+  
+  <div id="root"></div>
+  
+  <script>
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        document.getElementById('splash')?.classList.add('hidden');
+      }, 500);
+    });
+  </script>
+  
+  <script type="module" src="/main.jsx"></script>
+</body>
+</html>
